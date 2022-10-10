@@ -1,0 +1,17 @@
+.logo_whats {
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    right: 0.5rem;
+    bottom: 0.5rem;
+
+    transition: all 0.2s;
+}
+
+.logo_whats:hover {
+    width: 4.5rem;
+    height: 4.5rem;
+    filter: brightness(120%);
+    bottom: 0.3rem;
+    right: 0.3rem;
+} 

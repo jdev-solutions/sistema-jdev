@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.imagem__fundo1 {
+    /* background-image: url(../images/banner-1.jpg); */
+    height: 100vh;
+    background-color: #2c7699;
+}

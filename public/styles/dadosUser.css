@@ -1,0 +1,20 @@
+.buttons {
+    display: flex;
+    padding: 10px;
+}
+
+form {
+    margin-left: 10px;
+}
+
+h1 {
+    padding: 10px;
+}
+
+@media(max-width: 810px) {
+
+    .usuario-menu {
+        font-size: 1.6rem;
+    }
+
+}
