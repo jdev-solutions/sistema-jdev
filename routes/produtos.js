@@ -9,4 +9,9 @@ router.get('/search2', produtosController.search2);
 router.get('/cadastroProduto', produtosController.create2);
 router.post('/cadastroProduto', produtosController.store2);
 
+router.get('/editarProduto/:id', produtosController.edit2);
+
+router.post('/editarProduto/:id', produtosController.update2);
+router.delete('/deletarProduto/:id', produtosController.destroy2);
+
 module.exports = router;

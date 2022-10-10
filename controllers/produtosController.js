@@ -36,6 +36,43 @@ const produtosController = {
 
         return res.redirect('/produtos')
     },
+    edit2: async (req, res)=> {
+        const {id} = req.params;
+
+        const produto = await Produto.findByPk(id);
+
+        return res.render('editarProduto', {produto})
+    },
+    update2: async (req, res)=> {
+        const {id} = req.params;
+        const { name, valor } = req.body;
+
+        const resultado = await Produto.update({
+            name,
+            valor
+        }, {
+            where: {
+                id:id
+            }
+        });
+
+        console.log(resultado);
+
+        return res.redirect('/produtos')
+    },
+    destroy2: async (req, res)=> {
+        const {id} = req.params
+
+        const resultado = await Produto.destroy({
+            where: {
+                id:id
+            }
+        })
+
+        console.log(resultado);
+
+        res.redirect('/produtos')
+    },
     findById2: async (req, res)=> {
         let {id} = req.params;
 

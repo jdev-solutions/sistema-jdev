@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='/styles/dadosProduto.css'>
+    <link rel='stylesheet' href='/styles/header.css' />
     <title>dataProgress</title>
     <link rel="shortcut icon" href="./images/base-de-dados.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+    
     <header class="menu">
         <div>
-            <p class="produto-menu"> Veja Informações do Produto: <%= produto.name %> </p>
+            <p class="usuario-menu"> Edite os dados do Produto: <%= produto.name %> </p>
             <hr>
         </div>
     </header>
-    <main>
-        <h1>Informações do Produto </h1>
-        <ul>
-            <li>Nome: <%= produto.name %></li>
-            <li>Valor: R$ <%= produto.valor %> reais</li>
-        </ul>
-        <!-- Adcionar botões EDIÇÃO E DELETE -->
 
-        <div class="buttons">
-            <a href="/produtos/editarProduto/<%= produto.id %>" class="btn btn-primary"> Editar dados </a>
-            <form action="/produtos/deletarProduto/<%= produto.id %>" method="delete">
-                <button type="submit" class="btn btn-danger"> Excluir </button>
-            </form>
-        </div>
-        
+    <main class="container mt-4">
+        <form class="card p-3" action="/produtos/editarProduto/<%= produto.id %>" method="POST">
+            <div class="form-group">
+                <label for="name"> Nome </label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= produto.name %>">
+            </div>
+            <div class="form-group">
+                <label for="valor"> Valor </label>
+                <input type="number" class="form-control" id="valor" name="valor" value="<%= produto.valor %>">
+            </div>
+            <button class="btn btn-success" type="submit"> Salvar alterções </button>
+        </form>
     </main>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
