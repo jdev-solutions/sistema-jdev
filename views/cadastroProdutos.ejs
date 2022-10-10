@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dataProgress</title>
     <link rel="shortcut icon" href="./images/base-de-dados.png">
+    <link rel="stylesheet" href="/styles/cadastroProdutos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
     
-    <%- include('./partials/header') %>
+    <header class="menu">
+        <div>
+            <a href="/" title="Volte a tela inicial"><p class="produto-menu"> Produtos </p> </a>
+            <hr>
+        </div>
+    </header>
     
     <main class="container mt-4">
-        <form class="card p-3" action="/produtos/cadastro" method="POST">
+        <form class="card p-3" action="/produtos/cadastroProduto" method="POST">
             <div class="form-group">
                 <label for="name"> Nome </label>
                 <input type="text" class="form-control" id="name" name="name">

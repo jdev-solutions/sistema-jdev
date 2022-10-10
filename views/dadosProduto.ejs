@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/styles/header.css' />
-    <link rel="stylesheet" href='/styles/dadosUser.css'>
+    <link rel="stylesheet" href='/styles/dadosProduto.css'>
     <title>dataProgress</title>
     <link rel="shortcut icon" href="./images/base-de-dados.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -12,7 +11,7 @@
 <body>
     <header class="menu">
         <div>
-            <p class="usuario-menu"> Veja os dados de: <%= produto.name %> </p>
+            <p class="produto-menu"> Veja Informações do Produto: <%= produto.name %> </p>
             <hr>
         </div>
     </header>
@@ -20,14 +19,10 @@
         <h1>Informações do Produto </h1>
         <ul>
             <li>Nome: <%= produto.name %></li>
-            <li>Valor: <%= produto.valor %></li>
+            <li>Valor: R$ <%= produto.valor %> reais</li>
         </ul>
-        <div class="buttons">
-            <!-- <a href="/users/editar/<%= user.id %>" class="btn btn-primary"> Editar dados </a> -->
-            <!-- <form action="/users/deletar/<%= user.id %>" method="delete">
-                <button type="submit" class="btn btn-danger"> Excluir </button>
-            </form> -->
-        </div>
+        <!-- Adcionar botões EDIÇÃO E DELETE -->
+        
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

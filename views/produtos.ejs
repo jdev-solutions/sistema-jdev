@@ -10,13 +10,19 @@
 </head>
   <body>
     
-    <%- include('./partials/header') %>
+    <header class="menu">
+        <div>
+            <a href="/" title="Volte a tela inicial"><p class="produto-menu"> Produtos </p> </a>
+            <hr>
+        </div>
+    </header>
 
     <main class="container mt-4">
         <div class="container-lista d-flex justify-content-between">
-            <h1>Lista de usuários </h1>
-            <form action="/users/search" class="d-flex justify-content-around align-items-center" method="GET">
-                <input type="text" class="form-control" placeholder="Pesquise um usuario" name="key">
+            <h1>Lista de Produtos </h1>
+            <button class="ml-3 btn btn-primary button-cadastro"> <a class="ref" href="/produtos/cadastroProduto"> Cadastrar produto </a> </button>
+            <form action="/produtos/search2" class="d-flex justify-content-around align-items-center" method="GET">
+                <input type="text" class="form-control" placeholder="Pesquise um produto" name="key">
                 <button type="submit" class="ml-3 btn btn-primary"> Buscar </button>
             </form>
         </div>
@@ -30,12 +36,12 @@
                 </tr>
             </thead>
             <tbody>
-                <% users.forEach(user => { %>
+                <% produtos.forEach(produto => { %>
                     <tr>
-                        <th scope="row"> <%= user.id %> </th>
-                        <th> <%= user.name %> </th>
+                        <th scope="row"> <%= produto.id %> </th>
+                        <th> <%= produto.name %> </th>
                         <th>
-                            <a href="/users/ver/<%= user.id %>" class="btn btn-primary"> Ver dados </a>
+                            <a href="/produtos/verProduto/<%= produto.id %>" class="btn btn-primary"> Ver dados </a>
                         </th>
                     </tr>
                 <% }) %>

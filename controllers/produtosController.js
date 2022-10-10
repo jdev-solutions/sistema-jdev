@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const config = require('../config/database');
-const { Produto } = require('../models/Produto');
+const { Produto } = require('../models');
 const Op = Sequelize.Op 
 
 const produtosController = {
@@ -22,7 +22,7 @@ const produtosController = {
         return res.render('produtos', { produtos })
     },
     create2: (req, res)=> {
-        return res.render('cadastroProduto')
+        return res.render('cadastroProdutos')
     },
     store2: async (req, res)=> {
         const { name, valor } = req.body;
