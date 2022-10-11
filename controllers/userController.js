@@ -1,6 +1,7 @@
 // const models = require('../models');
 const config = require('../config/database');
 const { User } = require('../models');
+// const { Produto } = require('../models');
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const Op = Sequelize.Op
@@ -10,8 +11,10 @@ const userController = {
         let users = await User.findAll();
         return res.render('users', { users })
     },
-    create: (req, res)=> {
+    create: async (req, res)=> {
+        // let produtos = await Produto.findAll();
         return res.render('cadastroUser')
+        //, {produtos}
     },
     store: async (req, res)=> {
         const { name, email, birthdate, password, age, phone, cpf, produtosId } = req.body;
@@ -26,6 +29,16 @@ const userController = {
             cpf,
             produtosId
         });
+
+        if(produtosId == '1') {
+            console.log("Cartão de Crédito");
+        } else if(produtosId == '2') {
+            console.log("Empréstimo Pessoal");
+        } else if(produtosId == '3') {
+            console.log("Conta Corrente");
+        } else {
+            console.log("Esse produto não existe");
+        }
 
         console.log(resultado);
 

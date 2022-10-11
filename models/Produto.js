@@ -17,6 +17,8 @@ module.exports = (sequelize, DataType)=> {
         tableName: 'produtos'
     })
 
+    // Produto.sync({force: true});
+
     return Produto
 }
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataProgress</title>
+    <link rel="shortcut icon" href="./images/base-de-dados.png">
+    <link rel="stylesheet" href="/styles/produtos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+  <body>
+    
+    <header class="menu">
+        <div>
+            <a href="/" title="Volte a tela inicial"><p class="produto-menu"> Compras dos Clientes </p> </a>
+            <hr>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <div class="container-lista d-flex justify-content-between">
+            <h1>Lista de Compras </h1>
+            <form action="/compras/search3" class="d-flex justify-content-around align-items-center" method="GET">
+                <input type="number" class="form-control" placeholder="Pesquise uma compra" name="key">
+                <button type="submit" class="ml-3 btn btn-primary"> Buscar </button>
+            </form>
+        </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> ID da compra </th>
+                    <th scope="col"> Data da Compra </th>
+                    <th scope="col"> Ações </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% compras.forEach(compra => { %>
+                    <tr>
+                        <th scope="row"> <%= compra.id %> </th>
+                        <th> <%= compra.data_compra %> </th>
+                        <th>
+                            <a href="/compras/verCompra/<%= compra.id %>" class="btn btn-primary"> Ver dados </a>
+                        </th>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+
+  </body>
+</html>
