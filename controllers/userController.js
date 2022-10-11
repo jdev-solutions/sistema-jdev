@@ -14,7 +14,7 @@ const userController = {
         return res.render('cadastroUser')
     },
     store: async (req, res)=> {
-        const { name, email, birthdate, password, age, phone, cpf } = req.body;
+        const { name, email, birthdate, password, age, phone, cpf, produtosId } = req.body;
 
         const resultado = await User.create({
             name,
@@ -23,7 +23,8 @@ const userController = {
             password: bcrypt.hashSync(password, 10),
             age, 
             phone,
-            cpf
+            cpf,
+            produtosId
         });
 
         console.log(resultado);
@@ -39,7 +40,7 @@ const userController = {
     },
     update: async (req, res)=> {
         const {id} = req.params;
-        const { name, email, birthdate, password, age, phone, cpf } = req.body;
+        const { name, email, birthdate, password, age, phone, cpf, produtosId } = req.body;
 
         const resultado = await User.update({
             name,
@@ -48,7 +49,8 @@ const userController = {
             password,
             age,
             phone,
-            cpf
+            cpf,
+            produtosId
         }, {
             where: {
                 id:id

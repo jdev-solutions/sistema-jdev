@@ -1,3 +1,6 @@
+// const { Model } = require('sequelize');
+// const Produto = require('./Produto');
+
 module.exports = (sequelize, DataType)=> {
     const User = sequelize.define('User', {
         // id: {
@@ -6,31 +9,65 @@ module.exports = (sequelize, DataType)=> {
         //     autoIncrement: true
         // },
         name: {
-            type: DataType.STRING
+            type: DataType.STRING,
+            allowNull: false
         },
         email: {
-            type: DataType.STRING
+            type: DataType.STRING,
+            allowNull: false
         },
         password: {
-            type: DataType.STRING
+            type: DataType.STRING,
+            allowNull: false
         },
         birthdate: {
-            type: DataType.DATE
+            type: DataType.DATE,
+            allowNull: false
         },
         age: {
-            type: DataType.NUMBER
+            type: DataType.INTEGER,
+            allowNull: false
         },
         phone: {
-            type: DataType.NUMBER
+            type: DataType.STRING(20),
+            allowNull: false
         },
         cpf: {
-            type: DataType.NUMBER
+            type: DataType.STRING(20),
+            allowNull: false
         },
+        produtosId: {
+            type: DataType.INTEGER,
+            references: {
+              model: "produtos",
+              key: "id",
+            },
+            field: "produtosId"
+          }
     },{
+        sequelize,
         timestamps: false,
+        modelName: 'User',
         tableName: 'users'
-    })
+    });
 
+    // User.associate = (models)=> {
+    //     User.belongsTo(models.Produto, {
+    //         foreingKey: "produtosId",
+    //         targetKey: "id",
+    //         allowNull: false
+    //     });
+    // }
+
+    User.associate = (models)=> {
+        //associações vão aqui!
+        User.belongsTo(models.Produto, {
+          foreignKey: "produtosId",
+          targetKey: "id"
+        });
+    }
+
+    User.sync({force: true});
     return User
 }
 
