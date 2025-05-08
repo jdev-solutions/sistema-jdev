@@ -1,2 +1,1 @@
-Sistema JDev Solutions
-Sistema Interno da JDev, desenvolvido pelo nosso time.
+Sistema Interno da JDev Solutions, desenvolvido pelo nosso time.
