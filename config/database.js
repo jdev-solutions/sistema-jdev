@@ -1,7 +1,7 @@
 const config = {
     username: 'root',
     password: 'root',
-    database: 'primeiro_banco_de_dados', // nome do banco de dados no WorkBench
+    database: 'jdev_sistema', // nome do banco de dados no WorkBench
     host: 'localhost',
     dialect: 'mysql'
 }

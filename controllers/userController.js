@@ -3,6 +3,7 @@ const config = require('../config/database');
 const { User } = require('../models');
 // const { Produto } = require('../models');
 const Sequelize = require('sequelize');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Op = Sequelize.Op
 
@@ -113,6 +114,53 @@ const userController = {
         })
 
         return res.render('users', { users })
+    },
+    login: async (req, res) => {
+        const { email, password } = req.body;
+    
+        try {
+            const user = await User.findOne({ where: { email } });
+    
+            if (!user) {
+                console.log('Usuário não encontrado');
+                return res.render('login', { error: 'Usuário não encontrado.' });
+            }
+    
+            const validPassword = await bcrypt.compare(password, user.password);
+            if (!validPassword) {
+                console.log('Senha incorreta');
+                return res.render('login', { error: 'Senha incorreta.' });
+            }
+    
+            // 🔹 Geração do token incluindo name e produtosId
+            const token = jwt.sign(
+                {
+                    id: user.id,
+                    name: user.name, // ✅ Incluindo o nome
+                    produtosId: user.produtosId // ✅ Incluindo produtosId
+                }, 
+                process.env.JWT_SECRET, 
+                { expiresIn: '1h' }
+            );
+    
+            console.log(`✅ Token gerado: ${token}`);
+    
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: false,
+                sameSite: 'Lax',
+                maxAge: 3600000,
+                signed: true,
+                domain: 'localhost',
+                path: '/'
+            });
+    
+            res.redirect('/users')
+
+        } catch (error) {
+            console.error('Erro no login:', error);
+            return res.status(500).render('login', { error: 'Erro interno no servidor.' });
+        }
     }
     // agregadores: async (req, res)=> {
         // let total = await User.count()

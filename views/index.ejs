@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>dataProgress</title>
+    <title>Panel JDev</title>
     <link rel='stylesheet' href='/styles/index.css' />
     <link rel="shortcut icon" href="./images/base-de-dados.png">
   </head>
@@ -11,13 +11,13 @@
         <!-- header da página -->
         <div class="header">
             <!-- <h1 class="header__titulo"> Cadastros PAN </h1> -->
-            <img src="/images/banco-pan-logo-8.png" class="header__logo" alt="Logo da empresa">
+            <img src="/images/logojdev1.png" class="header__logo" alt="Logo da empresa">
             <!-- menu navegação -->
             <div class="menu__principal">
                 <ul class="menu_responsivo">
                     <li class="menu-li"><a href="/users" class="menu__item">Usuarios</a></li>
                     <li class="menu-li"><a href="/compras" class="menu__item">Compras</a></li>
-                    <li class="menu-li"><a href="/produtos" class="menu__item">Produtos</a></li>
+                    <li class="menu-li"><a href="/produtos" class="menu__item">Função</a></li>
                     <li class="menu-li"><a href="/login" class="menu__item">Login</a></li>
                 </ul>
             </div>
@@ -29,11 +29,11 @@
           <div class="container__conteudo">
 
             <div class="conteudo__paragrafo">
-              <h2 class="card__titulo">Administrador</h2>
+              <h2 class="card__titulo"><%= userName %></h2>
             </div>
 
             <div class="conteudo__paragrafo">
-              <h2 class="card__titulo"><span id="nome"></h2>
+              <h2 class="card__titulo"><%= produtoName %></h2>
             </div>
 
           </div>
@@ -41,6 +41,7 @@
     </div>
 
     <script src="/javascripts/index.js"></script>
+    <!-- <script src="/javascripts/auth.js"></script> -->
 
   </body>
 </html>

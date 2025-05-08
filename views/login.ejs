@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>dataProgress</title>
-    <link rel='stylesheet' href='/styles/login.css' />
+<head>
+    <title>Login - dataProgress</title>
+    <link rel="stylesheet" href="/styles/login.css" />
     <link rel="shortcut icon" href="./images/base-de-dados.png">
-  </head>
-  <body>
+</head>
+<body>
 
     <div class="imagem__fundo1">
-      <h1> <%= title %> PAN</h1>
-      <p>Formulario</p>
+        <h1>Login - JDev Panel</h1>
+        <p>Informe suas credenciais para acessar o painel</p>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div class="error">
+            <p><%= error %></p>
+          </div>
+        <% } %>
+
+        <form id="login-form" action="/login" method="POST">
+            <div class="input-container">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-container">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
     </div>
-    
-  </body>
+
+    <!-- <script src="/javascripts/login.js"></script> -->
+
+</body>
 </html>

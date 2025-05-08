@@ -12,7 +12,7 @@
     
     <header class="menu">
         <div>
-            <p class="usuario-menu"> Cliente: <%= user.name %>, edite os dados </p>
+            <p class="usuario-menu"> Usuário: <%= user.name %>, edite os dados </p>
             <hr>
         </div>
     </header>
@@ -49,14 +49,18 @@
                 <input type="number" class="form-control" id="cpf" name="cpf" value="<%= user.cpf %>">
             </div>
             <div class="form-group">
-                <label for="produtosId"> Produtos PAN </label> 
+                <label for="produtosId"> Função na JDev </label> 
                 <div>
                     <ul>
-                        <li>1. Cartão de Crédito</li>
-                        <li>2. Empréstimo Pessoal</li>
-                        <li>3. Conta Corrente</li>
+                        <li>1. CEO</li>
+                        <li>2. Desenvolvedor</li>
+                        <li>3. Infraestrutura</li>
+                        <li>4. Design</li>
+                        <li>5. Suporte</li>
+                        <li>6. Administração</li>
+                        <li>7. Comercial</li>
                     </ul>
-                    <p>Digite o codigo do seu produto adquirido:</p>
+                    <p>Digite o codigo da sua função:</p>
                 </div>
                 <input type="number" class="form-control" name="produtosId" value="<%= user.produtosId %>">
             </div>
